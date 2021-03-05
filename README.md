@@ -6,7 +6,7 @@ Composer command **create-project** to checkout the portalium-kickstarter applic
 to run the **create-project** command directly from your **htdocs/www** folder like this:
 
 ```bash
-composer create-project portalium portalium-kickstarter
+composer create-project portalium/portalium-kickstarter
 ```
 The **create-project** command will create a folder (inside of your current folder) named portalium-kickstarter. (If you want to change this name) 
 
