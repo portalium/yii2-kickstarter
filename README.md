@@ -8,7 +8,14 @@ to run the **create-project** command directly from your **htdocs/www** folder l
 ```bash
 composer create-project portalium/portalium-kickstarter
 ```
-The **create-project** command will create a folder (inside of your current folder) named portalium-kickstarter. (If you want to change this name) 
+The **create-project** command will create a folder (inside of your current folder) named portalium-kickstarter. (This name is changeable) If you want create-project by directory name (ex. portalium), run command like this:
+```bash
+composer create-project portalium/portalium-kickstarter portalium
+```
+Also if you want to chekout the special version/branch of portalium-kickstarter application (ex. develop), run command like this:
+```bash
+composer create-project portalium/portalium-kickstarter:dev-develop
+```
 
 # Init Project for Development
 Preapare the database information (db hostname, db name, db username, db password). Run init file in project directory like this:
