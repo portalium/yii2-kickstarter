@@ -1,0 +1,39 @@
+{
+    "name": "portalium/portalium-kickstarter",
+    "description": "Portalium Project Kickstarter",
+    "homepage": "http://www.portalium.dev/",
+    "type": "portalium-kickstarter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Uğur YILDIZ",
+            "email": "yildiz@diginova.com.tr",
+            "homepage": "https://uguryildiz.net"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/portalium/portalium-kickstarter/issues"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "portalium/portalium-core": "dev-main",
+        "portalium/portalium-site": "dev-main",
+        "portalium/portalium-user": "dev-main",
+        "portalium/portalium-theme": "dev-main"
+    },
+    "require-dev": {
+        "yiisoft/yii2-gii": "^2.0",
+        "yiisoft/yii2-debug": "~2.0.0"
+    },
+    "config": {
+        "fxp-asset": {
+            "installer-paths": "vendor/bower"
+        }
+    }
+}
