@@ -12,9 +12,9 @@ The **create-project** command will create a folder (inside of your current fold
 ```bash
 composer create-project portalium/portalium-kickstarter:dev-main portalium
 ```
-Also if you want to chekout the special version/branch of portalium-kickstarter application (ex. develop), run command like this:
+Also if you want to chekout the special version/branch of portalium-kickstarter application (ex. develop) by cloning the git repositories of packages inside the vendor directory, run command like this:
 ```bash
-composer create-project portalium/portalium-kickstarter:dev-develop
+composer create-project portalium/portalium-kickstarter:dev-develop portalium  --prefer-source
 ```
 
 # Init Project for Development
@@ -31,6 +31,8 @@ php yii migrate
 ```
 After successfully base migration, run migrate command for core portalium modules like this:
 ```
+php yii migrate --migrationPath=@yii/rbac/migrations/
+
 php yii migrate --migrationPath=@portalium/user/migrations
 
 php yii migrate --migrationPath=@portalium/site/migrations
