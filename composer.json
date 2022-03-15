@@ -21,11 +21,11 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "portalium/portalium-core": "dev-main",
-        "portalium/portalium-site": "dev-main",
-        "portalium/portalium-user": "dev-main",
-        "portalium/portalium-theme": "dev-main"
+        "php": ">=7.4.0",
+        "portalium/portalium-core": "^0.0.1",
+        "portalium/portalium-site": "^0.0.1",
+        "portalium/portalium-user": "^0.0.1",
+        "portalium/portalium-theme": "^0.0.1"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
