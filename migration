@@ -61,6 +61,7 @@ for ($i = 0; $i < count($installedPackages); $i++) {
         solveInfiniteLoop($parent, $child);
     }
 }
+passthru("php yii migrate --migrationPath=@portalium/site/migrations/menu --interactive=0");
 
 /**
  * 
@@ -68,7 +69,6 @@ for ($i = 0; $i < count($installedPackages); $i++) {
  * @return string
  */
 function getPsr4($name){
-    echo "Getting PSR-4 for " . $name ."-". $param."\n";
     $composerFile = __DIR__ . '/vendor/' . $name . '/composer.json';
     $composer = json_decode(file_get_contents($composerFile), true);
     $autoloadPsr4 = $composer["autoload"]["psr-4"];
