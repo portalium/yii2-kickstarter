@@ -22,10 +22,11 @@
     ],
     "require": {
         "php": ">=7.4.0",
-        "portalium/portalium-core": "^0.0.1",
-        "portalium/portalium-site": "^0.0.1",
-        "portalium/portalium-user": "^0.0.1",
-        "portalium/portalium-theme": "^0.0.1"
+        "portalium/portalium-core": "*",
+        "portalium/portalium-site": "*",
+        "portalium/portalium-user": "*",
+        "portalium/portalium-theme": "*",
+	"portalium/portalium-menu": "*"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
