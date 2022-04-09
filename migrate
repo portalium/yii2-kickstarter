@@ -1,0 +1,195 @@
+#!/usr/bin/env php
+<?php
+
+use Composer\InstalledVersions;
+
+require_once __DIR__ . '/vendor/composer/InstalledVersions.php';
+
+$installedPath = __DIR__ . '/vendor/composer/installed.json';
+$installed = json_decode(file_get_contents($installedPath), true);
+
+
+$types = [
+    "portalium-core",
+    "portalium-theme",
+    "portalium-module"
+];
+
+$packagesList = [];
+
+foreach ($types as $type) {
+    foreach (InstalledVersions::getInstalledPackagesByType($type) as $package) {
+        $packagesList[] = $package;
+    }
+}
+
+
+$packagesJson = [];
+foreach ($installed["packages"] as $package => $data) {
+    if (in_array($data["name"], $packagesList)) {
+        $packagesJson[] = $data;
+    }
+}
+
+$required = [];
+foreach ($packagesJson as $package) {
+    if (isset($package["require"])) {
+        $required[$package["name"]] = $package["require"];
+    }else{
+        $required[$package["name"]] = [];
+    }
+}
+
+$installedPackages = [];
+$cyclePackages = [];
+$requiredPackages = [];
+
+foreach ($required as $key => $value) {
+    $requiredPackages[$key] = getRequiredRecursive($required, $key, $types);
+}
+
+passthru("php yii migrate --migrationPath=@yii/rbac/migrations --interactive=0");
+
+for ($i = 0; $i < count($installedPackages); $i++) {
+    $key = $installedPackages[$i];
+    if (!in_array($installedPackages[$i], $cyclePackages)){
+        $return = execCommand(getPsr4($key));
+    }else{
+        echo "Cycle detected: " . $key . "\n";
+        $parent = $installedPackages[$i];
+        $child = $cyclePackages[$parent];
+        solveInfiniteLoop($parent, $child);
+    }
+}
+
+/**
+ * 
+ * @param $name
+ * @return string
+ */
+function getPsr4($name){
+    echo "Getting PSR-4 for " . $name ."-". $param."\n";
+    $composerFile = __DIR__ . '/vendor/' . $name . '/composer.json';
+    $composer = json_decode(file_get_contents($composerFile), true);
+    $autoloadPsr4 = $composer["autoload"]["psr-4"];
+    return str_replace("\\", "/", array_keys($autoloadPsr4)[0]);
+}
+
+/**
+ * @param $packageName
+ * @return string
+ * @description Get package path
+ */
+function getPackageType($packageName){
+    $installedPath = __DIR__ . '/vendor/composer/installed.json';
+    $installed = json_decode(file_get_contents($installedPath), true);
+    foreach ($installed["packages"] as $package => $data) {
+        if ($data["name"] == $packageName) {
+            return $data["type"];
+        }
+    }
+}
+
+/**
+ * @param $required
+ * @param $package
+ * @param $types
+ * @param $result = []
+ * @return array
+ */
+function getRequiredRecursive($required, $package, $types, $result = []) {
+    global $installedPackages;
+    global $cyclePackages;
+    if (isset($required[$package]) && !in_array($package, $installedPackages)) {
+        foreach ($required[$package] as $key => $value) {
+            if(!in_array(getPackageType($key), $types)){
+                continue;
+            }
+            $result[$key] = $value;
+            if(checkCycle($package, $key, $required)){
+                $cyclePackages[$key] = $package;
+                continue;
+            }
+            $result = getRequiredRecursive($required, $key, $types, $result);
+        }
+    }
+    if (!in_array($package, $installedPackages)) {
+        array_push($installedPackages, $package);
+    }
+    return $result;
+}
+
+/**
+ * @param $parent
+ * @param $child
+ * @param $required
+ */
+function checkCycle($parent, $child, $required){
+    if (isset($required[$child])) {
+        foreach ($required[$child] as $key => $value) {
+            if ($key == $parent) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/**
+ * @param $parent
+ * @param $child
+ */
+function solveInfiniteLoop($parent, $child){
+
+        global $requiredPackages;
+        $return = execCommand(getPsr4($parent,4), false);
+        if ($return != 0) {
+            $childRequired = $requiredPackages[$child];
+            if(count($childRequired) > 1){
+                migrateRequired($childRequired);
+            }
+            $return = execCommand(getPsr4($child));
+            if ($return == 0){
+            
+                $return = execCommand(getPsr4($parent));
+            }
+            
+        }else{
+            $childRequired = $requiredPackages[$child];
+            if(count($childRequired) > 1){
+                migrateRequired($childRequired);
+            }
+            $return = execCommand(getPsr4($parent));
+        }
+}
+
+/**
+ * @param $required
+ */
+function migrateRequired($required){
+    global $requiredPackages;
+    foreach ($required as $key => $value) {
+        $childRequired = $requiredPackages[$key];
+        migrateRequired($childRequired);
+    }
+    if(!empty($childRequired)){
+        passthru("php yii migrate --migrationPath=@" . getPsr4($key) . "/migrations", $return);
+        if ($return != 0) {
+            exit;
+        }
+    }
+}
+
+/**
+ * @param $package
+ * @param bool $return
+ * @return int
+ */
+function execCommand($package, $exit = true){
+    passthru("php yii migrate --migrationPath=@" . $package . "/migrations --interactive=0", $return);
+    echo "Migration " . $package . " : " . ($return == 0 ? "OK" : "FAILED") . "\n";
+    if ($return != 0 && $exit) {
+        exit;
+    }
+    return $return;
+}

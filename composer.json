@@ -35,5 +35,10 @@
         "fxp-asset": {
             "installer-paths": "vendor/bower"
         }
-    }
+    },
+    "scripts": {
+		"post-update-cmd": [
+			"php migration"
+		]
+	}
 }
