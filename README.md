@@ -29,13 +29,9 @@ After the setting database configuration, run migrate command like this:
 ```
 php yii migrate
 ```
-After successfully base migration, run migrate command for core portalium modules like this:
+After successfully base migration, run migrate command for all portalium modules like this:
 ```
-php yii migrate --migrationPath=@yii/rbac/migrations
-
-php yii migrate --migrationPath=@portalium/user/migrations
-
-php yii migrate --migrationPath=@portalium/site/migrations
+php migration
 ```
 
 # Access App

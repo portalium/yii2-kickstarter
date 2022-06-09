@@ -39,7 +39,7 @@
     },
     "scripts": {
 		"post-update-cmd": [
-			"php migrate"
+			"php migration"
 		]
 	}
 }
