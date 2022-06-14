@@ -14,6 +14,15 @@ return [
         'theme' => [
             'class' => 'portalium\theme\Module'
         ],
+        'menu' => [
+            'class' => 'portalium\menu\Module',
+        ],
+        'content' => [
+            'class' => 'portalium\content\Module',
+        ],
+        'storage' => [
+            'class' => 'portalium\storage\Module',
+        ],
     ],
     'components' => [
         'request' => [
