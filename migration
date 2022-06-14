@@ -61,7 +61,9 @@ for ($i = 0; $i < count($installedPackages); $i++) {
         solveInfiniteLoop($parent, $child);
     }
 }
+passthru("php yii migrate --migrationPath=@portalium/menu/migrations/menu --interactive=0");
 passthru("php yii migrate --migrationPath=@portalium/site/migrations/menu --interactive=0");
+passthru("php yii migrate --migrationPath=@portalium/user/migrations/menu --interactive=0");
 
 /**
  * 
