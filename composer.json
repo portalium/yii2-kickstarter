@@ -22,6 +22,7 @@
     ],
     "require": {
         "php": ">=7.4.0",
+        "portalium/portalium-composer": "*",
         "portalium/portalium-core": "*",
         "portalium/portalium-site": "*",
         "portalium/portalium-user": "*",
@@ -34,9 +35,18 @@
         "yiisoft/yii2-gii": "^2.0",
         "yiisoft/yii2-debug": "~2.0.0"
     },
+    "scripts": {
+		"post-update-cmd": [
+			"php migration"
+		]
+	},
     "config": {
         "fxp-asset": {
             "installer-paths": "vendor/bower"
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "portalium/portalium-composer": true
         }
     }
 }
