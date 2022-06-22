@@ -35,11 +35,6 @@
         "yiisoft/yii2-gii": "^2.0",
         "yiisoft/yii2-debug": "~2.0.0"
     },
-    "scripts": {
-		"post-update-cmd": [
-			"php migration"
-		]
-	},
     "config": {
         "fxp-asset": {
             "installer-paths": "vendor/bower"
