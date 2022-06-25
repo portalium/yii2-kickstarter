@@ -70,16 +70,16 @@ foreach ($callbacks as $callback) {
     }
 }
 
-echo "\n  Database host: ";
+echo "\n  Database Host / IP Address: ";
 $dbHost = trim(fgets(STDIN));
 
-echo "\n  Database name: ";
+echo "\n  Database Name: ";
 $dbName = trim(fgets(STDIN));
 
-echo "\n  Database user name: ";
+echo "\n  Database Username: ";
 $dbUser = trim(fgets(STDIN));
 
-echo "\n  Database password: ";
+echo "\n  Database User Password: ";
 $dbPassword = trim(fgets(STDIN));
 
 $mainLocal = file_get_contents("$root/common/config/main-local.php");
@@ -89,9 +89,13 @@ $mainLocal = str_replace("'password' => ''", "'password' => '$dbPassword'", $mai
 
 file_put_contents("$root/common/config/main-local.php", $mainLocal);
 
-$command = "php migration";
-system($command);
+echo "\n  Run command 'php migration':[yes|no] ";
+$answer = trim(fgets(STDIN));
 
+if (strncasecmp($answer, 'y', 1)) {
+    $command = "php migration";
+    system($command);
+}
 
 echo "\n  ... initialization completed.\n\n";
 
