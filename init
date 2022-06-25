@@ -70,6 +70,29 @@ foreach ($callbacks as $callback) {
     }
 }
 
+echo "\n  Database host: ";
+$dbHost = trim(fgets(STDIN));
+
+echo "\n  Database name: ";
+$dbName = trim(fgets(STDIN));
+
+echo "\n  Database user name: ";
+$dbUser = trim(fgets(STDIN));
+
+echo "\n  Database password: ";
+$dbPassword = trim(fgets(STDIN));
+
+$mainLocal = file_get_contents("$root/common/config/main-local.php");
+$mainLocal = str_replace("'dsn' => 'mysql:host=localhost;dbname=portalium'", "'dsn' => 'mysql:host=$dbHost;dbname=$dbName'", $mainLocal);
+$mainLocal = str_replace("'username' => 'root'", "'username' => '$dbUser'", $mainLocal);
+$mainLocal = str_replace("'password' => ''", "'password' => '$dbPassword'", $mainLocal);
+
+file_put_contents("$root/common/config/main-local.php", $mainLocal);
+
+$command = "php migration";
+system($command);
+
+
 echo "\n  ... initialization completed.\n\n";
 
 function getFileList($root, $basePath = '')
