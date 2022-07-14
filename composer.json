@@ -1,13 +1,13 @@
 {
     "name": "portalium/portalium-kickstarter",
     "description": "Portalium Project Kickstarter",
-    "homepage": "http://www.portalium.dev/",
+    "homepage": "https://www.portalium.dev/",
     "type": "portalium-kickstarter",
     "license": "MIT",
     "authors": [
         {
             "name": "Uğur YILDIZ",
-            "email": "yildiz@diginova.com.tr",
+            "email": "ugur.yildiz@diginova.com.tr",
             "homepage": "https://uguryildiz.net"
         }
     ],
