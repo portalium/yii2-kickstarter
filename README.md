@@ -35,10 +35,8 @@ php migration
 ```
 
 # Access App
-You can open application on a single domain so **/** is frontend, **/admin** is backend, **/api** is RESTful web service api. Example links for access to Portalium App:
+You can open application on a single domain so **/** is web, **/api** is RESTful web service api. Example links for access to Portalium App:
 
-frontend: http://localhost/portalium-kickstarter
-
-backend: http://localhost/portalium-kickstarter/admin
+web: http://localhost/portalium-kickstarter
 
 rest-api: http://localhost/portalium-kickstarter/api

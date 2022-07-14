@@ -16,7 +16,7 @@ return [
             'cookieValidationKey' => '',
             'csrfParam' => '_csrf-api',
             'class' => 'portalium\web\Request',
-            'web'=> '/api/web',
+            'web'=> '/api/www',
             'aliasUrl' => '/api'
         ],
         'urlManager' => [

@@ -1,15 +1,15 @@
 <?php
 return [
-    'id' => 'frontend',
+    'id' => 'web',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'site/home',
     'modules' => [
         'site' => [
             'class' => 'portalium\site\Module'
-        ],
+        ], 
         'user' => [
-            'class' => 'portalium\user\Module'
+            'class' => 'portalium\user\Module',
         ],
         'theme' => [
             'class' => 'portalium\theme\Module'
@@ -28,25 +28,25 @@ return [
         'request' => [
             'class' => 'portalium\web\Request',
             'cookieValidationKey' => '',
-            'csrfParam' => '_csrf-frontend',
-            'web' => '/frontend/web',
-            'aliasUrl' => '',
+            'csrfParam' => '_csrf-web',
+			'web'=> '/web/www',
+            'aliasUrl' => ''
         ],
 		 'urlManager' => [
-             'enablePrettyUrl' => true,
-             'showScriptName' => false,
+        	'enablePrettyUrl' => true,
+        	'showScriptName' => false,
         ],
         'user' => [
             'identityClass' => 'portalium\user\models\User',
             'enableAutoLogin' => true,
-            'loginUrl'=>['site/auth/login'],
+            'loginUrl' => ['site/auth/login'],
             'identityCookie' => [
-                'name' => '_identity-frontend',
+                'name' => '_identity-web',
                 'httpOnly' => true
             ],
         ],
         'session' => [
-            'name' => 'portalium-frontend',
+            'name' => 'portalium-web',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -60,8 +60,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/home/error',
         ],
-
     ],
-    'layout' => 'frontend-main',
+    'layout' => 'main',
     'layoutPath' => '@vendor/portalium/portalium-theme/src/layouts'
 ];
