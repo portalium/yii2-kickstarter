@@ -92,7 +92,7 @@ file_put_contents("$root/common/config/main-local.php", $mainLocal);
 echo "\n  Run command 'php migration':[yes|no] ";
 $answer = trim(fgets(STDIN));
 
-if (strncasecmp($answer, 'y', 1)) {
+if (!strncasecmp($answer, 'y', 1)) {
     $command = "php migration";
     system($command);
 }
