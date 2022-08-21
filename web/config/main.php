@@ -6,13 +6,13 @@ return [
     'defaultRoute' => 'site/home',
     'modules' => [
         'site' => [
-            'class' => 'portalium\site\Module'
+            'class' => 'portalium\site\Module',
         ], 
         'user' => [
             'class' => 'portalium\user\Module',
         ],
         'theme' => [
-            'class' => 'portalium\theme\Module'
+            'class' => 'portalium\theme\Module',
         ],
         'menu' => [
             'class' => 'portalium\menu\Module',
@@ -61,6 +61,9 @@ return [
             'errorAction' => 'site/home/error',
         ],
     ],
-    'layout' => 'main',
-    'layoutPath' => '@vendor/portalium/portalium-theme/src/layouts'
+    'layout' => 'dashboard',
+    'layoutPath' => '@vendor/portalium/portalium-theme/src/layouts',
+    'params' => [
+        'bsVersion' => '5.x',
+    ]
 ];

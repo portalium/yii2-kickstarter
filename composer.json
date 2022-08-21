@@ -16,6 +16,42 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-composer"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-core"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-site"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-user"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-theme"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-user"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-menu"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-content"
+        },
+        {
+            "type": "vcs",
+            "url": "/Users/diginova/portalium-github/portalium-storage"
+        },
+        {
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
