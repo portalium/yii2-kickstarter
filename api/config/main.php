@@ -5,10 +5,19 @@ return [
     'bootstrap' => ['log'],
     'modules' => [
         'site' => [
-            'class' => 'portalium\site\Module'
+            'class' => 'portalium\site\Module',
         ],
         'user' => [
             'class' => 'portalium\user\Module',
+        ],
+        'menu' => [
+            'class' => 'portalium\menu\Module',
+        ],
+        'content' => [
+            'class' => 'portalium\content\Module',
+        ],
+        'storage' => [
+            'class' => 'portalium\storage\Module',
         ],
     ],
     'components' => [
