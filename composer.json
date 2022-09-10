@@ -20,6 +20,7 @@
             "url": "https://asset-packagist.org"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.4.0",
         "portalium/portalium-composer": "*",
