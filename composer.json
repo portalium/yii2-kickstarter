@@ -27,8 +27,9 @@
         "portalium/portalium-core": "*",
         "portalium/portalium-site": "*",
         "portalium/portalium-user": "*",
+	"portalium/portalium-rbac": "*",
         "portalium/portalium-theme": "*",
-	    "portalium/portalium-menu": "*",
+	"portalium/portalium-menu": "*",
         "portalium/portalium-content": "*",
         "portalium/portalium-storage": "*"
     },
