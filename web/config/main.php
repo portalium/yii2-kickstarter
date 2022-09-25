@@ -11,6 +11,9 @@ return [
         'user' => [
             'class' => 'portalium\user\Module',
         ],
+	'rbac' => [
+            'class' => 'portalium\rbac\Module',
+        ],
         'theme' => [
             'class' => 'portalium\theme\Module',
         ],
