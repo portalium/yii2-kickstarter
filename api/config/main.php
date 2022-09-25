@@ -10,6 +10,9 @@ return [
         'user' => [
             'class' => 'portalium\user\Module',
         ],
+        'rbac' => [
+            'class' => 'portalium\rbac\Module',
+        ],
         'menu' => [
             'class' => 'portalium\menu\Module',
         ],
