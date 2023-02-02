@@ -93,7 +93,13 @@ echo "\n  Run command 'php migration':[yes|no] ";
 $answer = trim(fgets(STDIN));
 
 if (!strncasecmp($answer, 'y', 1)) {
-    $command = "php migration";
+    if (isset($params['noIndex']))
+    {
+        $command = "php migration --noIndex";
+    }else
+    {
+        $command = "php migration";
+    }
     system($command);
 }
 
