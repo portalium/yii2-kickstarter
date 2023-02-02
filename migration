@@ -8,6 +8,7 @@ require_once __DIR__ . '/vendor/composer/InstalledVersions.php';
 $installedPath = __DIR__ . '/vendor/composer/installed.json';
 $installed = json_decode(file_get_contents($installedPath), true);
 
+$params = getParams();
 
 $types = [
     "portalium-core",
@@ -48,7 +49,7 @@ foreach ($required as $key => $value) {
     $requiredPackages[$key] = getRequiredRecursive($required, $key, $types);
 }
 
-passthru("php yii migrate --migrationPath=@yii/rbac/migrations --interactive=0");
+passthru("php portalium migrate --migrationPath=@yii/rbac/migrations --interactive=0");
 
 for ($i = 0; $i < count($installedPackages); $i++) {
     $key = $installedPackages[$i];
@@ -61,10 +62,20 @@ for ($i = 0; $i < count($installedPackages); $i++) {
         solveInfiniteLoop($parent, $child);
     }
 }
+$menuMigrationsScript = [
+    "php portalium migrate --migrationPath=@portalium/menu/migrations/menu --interactive=0",
+    "php portalium migrate --migrationPath=@portalium/user/migrations/menu --interactive=0",
+    "php portalium migrate --migrationPath=@portalium/site/migrations/menu --interactive=0",
+];
+if (isset($params['noIndex'])){
+    foreach ($menuMigrationsScript as $script){
+        $script .= " --noIndex";
+    }
+}
 
-passthru("php yii migrate --migrationPath=@portalium/menu/migrations/menu --interactive=0");
-passthru("php yii migrate --migrationPath=@portalium/user/migrations/menu --interactive=0");
-passthru("php yii migrate --migrationPath=@portalium/site/migrations/menu --interactive=0");
+foreach ($menuMigrationsScript as $script){
+    passthru($script);
+}
 
 for ($i = 0; $i < count($installedPackages); $i++) {
     $key = $installedPackages[$i];
@@ -176,12 +187,17 @@ function solveInfiniteLoop($parent, $child){
  */
 function migrateRequired($required){
     global $requiredPackages;
+    global $params;
     foreach ($required as $key => $value) {
         $childRequired = $requiredPackages[$key];
         migrateRequired($childRequired);
     }
     if(!empty($childRequired)){
-        passthru("php yii migrate --migrationPath=@" . getPsr4($key) . "/migrations", $return);
+        $script = "php portalium migrate --migrationPath=@" . getPsr4($key) . "/migrations";
+        if (isset($params['noIndex'])){
+            $script .= " --noIndex";
+        }
+        passthru($script, $return);
         if ($return != 0) {
             exit;
         }
@@ -194,10 +210,36 @@ function migrateRequired($required){
  * @return int
  */
 function execCommand($package,$path, $exit = true){
-    passthru("php yii migrate --migrationPath=@" . $package . $path ." --interactive=0", $return);
-    echo "Migration " . $package . " : " . ($return == 0 ? "OK" : "FAILED") . "\n";
+    global $params;
+    $script = "php portalium migrate --migrationPath=@" . $package . $path ." --interactive=0";
+    
+    if (isset($params['noIndex'])){
+        $script .= " --noIndex";
+    }
+    
+    passthru($script, $return);
     if ($return != 0 && $exit) {
         exit;
     }
     return $return;
+}
+
+function getParams()
+{
+    $rawParams = [];
+    if (isset($_SERVER['argv'])) {
+        $rawParams = $_SERVER['argv'];
+        array_shift($rawParams);
+    }
+
+    $params = [];
+    foreach ($rawParams as $param) {
+        if (preg_match('/^--(\w+)(=(.*))?$/', $param, $matches)) {
+            $name = $matches[1];
+            $params[$name] = isset($matches[3]) ? $matches[3] : true;
+        } else {
+            $params[] = $param;
+        }
+    }
+    return $params;
 }
