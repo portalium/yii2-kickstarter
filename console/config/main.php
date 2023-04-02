@@ -3,7 +3,7 @@ return [
     'id' => 'console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'console\controllers',
+    'controllerNamespace' => 'portalium\console\controllers',
     'modules' => [
         'site' => [
             'class' => 'portalium\site\Module'

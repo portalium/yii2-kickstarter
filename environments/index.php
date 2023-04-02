@@ -7,7 +7,7 @@ return [
             'web/www/assets'
         ],
         'setExecutable' => [
-            'yii'
+            'portalium'
         ],
         'setCookieValidationKey' => [
             'api/config/main-local.php',
@@ -21,7 +21,7 @@ return [
             'web/www/assets'
         ],
         'setExecutable' => [
-            'yii'
+            'portalium'
         ],
         'setCookieValidationKey' => [
             'api/config/main.php',

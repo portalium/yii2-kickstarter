@@ -22,6 +22,10 @@ Preapare the database information (db hostname, db name, db username, db passwor
 ```
 php init
 ```
+If you don't want to create indexes in your tables, you can use the following command:
+```
+php init --noIndex
+```
 Select the option Development. And then configure the database settings in **../common/config/main-local.php** file.
 
 # Migrate Database
