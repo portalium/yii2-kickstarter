@@ -31,7 +31,7 @@ Select the option Development. And then configure the database settings in **../
 # Migrate Database
 After the setting database configuration, run migrate command like this:
 ```
-php yii migrate
+php portalium migrate
 ```
 After successfully base migration, run migrate command for all portalium modules like this:
 ```
