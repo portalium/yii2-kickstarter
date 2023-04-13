@@ -24,6 +24,7 @@
     "require": {
         "php": ">=7.4.0",
         "portalium/portalium-composer": "*",
+	"portalium/portalium-bootstrap5": "*",
         "portalium/portalium-core": "*",
         "portalium/portalium-site": "*",
         "portalium/portalium-user": "*",
