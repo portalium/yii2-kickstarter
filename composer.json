@@ -24,6 +24,7 @@
     "require": {
         "php": ">=7.4.0",
         "portalium/portalium-composer": "*",
+	"portalium/portalium-bootstrap5": "*",
         "portalium/portalium-core": "*",
         "portalium/portalium-site": "*",
         "portalium/portalium-user": "*",
@@ -31,8 +32,7 @@
         "portalium/portalium-theme": "*",
 	"portalium/portalium-menu": "*",
         "portalium/portalium-content": "*",
-        "portalium/portalium-storage": "*",
-	"yiisoft/yii2-bootstrap5": "dev-master#9e944cd085f5863e46ec93db48b6fdc6a9e0260f"
+        "portalium/portalium-storage": "*"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
