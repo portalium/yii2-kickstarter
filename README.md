@@ -44,3 +44,12 @@ You can open application on a single domain so **/** is web, **/api** is RESTful
 web: http://localhost/portalium-kickstarter
 
 rest-api: http://localhost/portalium-kickstarter/api
+
+# Issues
+## Create Index Error
+Description: While setting up on Windows computers, if the container to which the database is connected suddenly shuts down during the creation of database tables and some tables are missing in the database, an error message "Settings not found" is encountered when attempting to access the site.
+
+Solution: To resolve this issue, remove the database and reinstall it using the command 
+```
+php init -noIndex.
+```
