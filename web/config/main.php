@@ -26,6 +26,9 @@ return [
         'storage' => [
             'class' => 'portalium\storage\Module',
         ],
+	'workspace' => [
+            'class' => 'portalium\workspace\Module',
+        ]
     ],
     'components' => [
         'request' => [
