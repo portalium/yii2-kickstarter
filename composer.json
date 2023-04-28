@@ -32,7 +32,8 @@
         "portalium/portalium-theme": "*",
 	"portalium/portalium-menu": "*",
         "portalium/portalium-content": "*",
-        "portalium/portalium-storage": "*"
+        "portalium/portalium-storage": "*",
+	"portalium/portalium-workspace": "*"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
