@@ -11,6 +11,9 @@ return [
         'user' => [
             'class' => 'portalium\user\Module',
         ],
+        'workspace' => [
+            'class' => 'portalium\workspace\Module',
+        ]
     ],
     'components' => [
         'log' => [
