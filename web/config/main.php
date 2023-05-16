@@ -28,16 +28,7 @@ return [
         ],
         'workspace' => [
             'class' => 'portalium\workspace\Module',
-        ],
-        'flow' => [
-            'class' => 'diginova\flow\Module',
-        ],
-        'ide' => [
-            'class' => 'diginova\ide\Module',
-        ],
-        'store' => [
-            'class' => 'diginova\store\Module',
-        ],
+        ]
     ],
     'components' => [
         'request' => [
