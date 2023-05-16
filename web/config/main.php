@@ -26,9 +26,18 @@ return [
         'storage' => [
             'class' => 'portalium\storage\Module',
         ],
-	'workspace' => [
+        'workspace' => [
             'class' => 'portalium\workspace\Module',
-        ]
+        ],
+        'flow' => [
+            'class' => 'diginova\flow\Module',
+        ],
+        'ide' => [
+            'class' => 'diginova\ide\Module',
+        ],
+        'store' => [
+            'class' => 'diginova\store\Module',
+        ],
     ],
     'components' => [
         'request' => [
@@ -68,7 +77,7 @@ return [
         ],
     ],
     'layout' => 'dashboard',
-    'layoutPath' => '@vendor/portalium/portalium-theme/src/layouts',
+    'layoutPath' => '@vendor/portalium/yii2-theme/src/layouts',
     'params' => [
         'bsVersion' => '5.x',
     ]
