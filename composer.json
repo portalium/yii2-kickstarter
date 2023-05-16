@@ -1,5 +1,5 @@
 {
-    "name": "portalium/portalium-kickstarter",
+    "name": "portalium/yii2-kickstarter",
     "description": "Portalium Project Kickstarter",
     "homepage": "https://www.portalium.dev/",
     "type": "portalium-kickstarter",
@@ -12,7 +12,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/portalium/portalium-kickstarter/issues"
+        "issues": "https://github.com/portalium/yii2-kickstarter/issues"
     },
     "repositories": [
         {
@@ -23,17 +23,17 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.4.0",
-        "portalium/portalium-composer": "*",
-	"portalium/portalium-bootstrap5": "*",
-        "portalium/portalium-core": "*",
-        "portalium/portalium-site": "*",
-        "portalium/portalium-user": "*",
-	"portalium/portalium-rbac": "*",
-        "portalium/portalium-theme": "*",
-	"portalium/portalium-menu": "*",
-        "portalium/portalium-content": "*",
-        "portalium/portalium-storage": "*",
-	"portalium/portalium-workspace": "*"
+        "portalium/yii2-composer": "*",
+	    "portalium/yii2-bootstrap5": "*",
+        "portalium/yii2-core": "*",
+        "portalium/yii2-site": "*",
+        "portalium/yii2-user": "*",
+	    "portalium/yii2-rbac": "*",
+        "portalium/yii2-theme": "*",
+	    "portalium/yii2-menu": "*",
+        "portalium/yii2-content": "*",
+        "portalium/yii2-storage": "*",
+        "portalium/yii2-workspace": "*"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
@@ -45,7 +45,7 @@
         },
         "allow-plugins": {
             "yiisoft/yii2-composer": true,
-            "portalium/portalium-composer": true
+            "portalium/yii2-composer": true
         }
     }
 }
