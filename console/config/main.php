@@ -13,6 +13,9 @@ return [
         ],
         'workspace' => [
             'class' => 'portalium\workspace\Module',
+        ],
+        'theme' => [
+            'class' => 'portalium\theme\Module',
         ]
     ],
     'components' => [
