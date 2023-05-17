@@ -11,9 +11,9 @@ $installed = json_decode(file_get_contents($installedPath), true);
 $params = getParams();
 
 $types = [
-    "yii2-core",
-    "yii2-theme",
-    "yii2-module"
+    "portalium-core",
+    "portalium-theme",
+    "portalium-module"
 ];
 
 $packagesList = [];
