@@ -82,6 +82,11 @@ for ($i = 0; $i < count($installedPackages); $i++) {
     $return = execCommand(getPsr4($key), "/migrations/menu");
 }
 
+for ($i = 0; $i < count($installedPackages); $i++) {
+    $key = $installedPackages[$i];
+    $return = execCommand(getPsr4($key), "/migrations/post");
+}
+
 /**
  * 
  * @param $name
