@@ -51,5 +51,5 @@ Description: While setting up on Windows computers, if the container to which th
 
 Solution: To resolve this issue, remove the database and reinstall it using the command 
 ```
-php init --noIndex.
+php init --noIndex
 ```
