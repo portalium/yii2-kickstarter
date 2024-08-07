@@ -33,7 +33,8 @@
 	    "portalium/yii2-menu": "*",
         "portalium/yii2-content": "*",
         "portalium/yii2-storage": "*",
-        "portalium/yii2-workspace": "*"
+        "portalium/yii2-workspace": "*",
+        "portalium/yii2-notification": "*"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
