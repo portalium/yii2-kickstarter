@@ -11,7 +11,7 @@ return [
         'user' => [
             'class' => 'portalium\user\Module',
         ],
-	'rbac' => [
+	    'rbac' => [
             'class' => 'portalium\rbac\Module',
         ],
         'theme' => [
@@ -28,7 +28,10 @@ return [
         ],
         'workspace' => [
             'class' => 'portalium\workspace\Module',
-        ]
+        ],
+        'notification' => [
+            'class' => 'portalium\notification\Module',
+        ],
     ],
     'components' => [
         'request' => [
