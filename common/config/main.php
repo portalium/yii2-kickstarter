@@ -14,5 +14,21 @@ return [
             // uncomment if you want to cache RBAC items hierarchy
             // 'cache' => 'cache',
         ],
+        'assetManager' => [
+                'bundles' => [
+                    'yii\bootstrap5\BootstrapAsset' => [
+                        'sourcePath' => '@vendor/twbs/bootstrap/dist',
+                        'css' => [
+                            'css/bootstrap.min.css',
+                        ],
+                    ],
+                    'yii\bootstrap5\BootstrapPluginAsset' => [
+                        'sourcePath' => '@vendor/twbs/bootstrap/dist',
+                        'js' => [
+                            'js/bootstrap.bundle.min.js',
+                        ],
+                    ],
+                ],
+            ],
     ],
 ];
