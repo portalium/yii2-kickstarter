@@ -34,7 +34,7 @@
         "portalium/yii2-content": "*",
         "portalium/yii2-storage": "*",
         "portalium/yii2-workspace": "*",
-	    "yiisoft/yii2-bootstrap5": "dev-master#1a4f4d6"
+        "portalium/yii2-notification": "*"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "^2.0",
