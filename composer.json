@@ -1,52 +1,54 @@
 {
-    "name": "portalium/yii2-kickstarter",
-    "description": "Portalium Project Kickstarter",
-    "homepage": "https://www.portalium.dev/",
-    "type": "portalium-kickstarter",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Uğur YILDIZ",
-            "email": "ugur.yildiz@diginova.com.tr",
-            "homepage": "https://uguryildiz.net"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/portalium/yii2-kickstarter/issues"
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.4.0",
-        "portalium/yii2-composer": "*",
-	    "portalium/yii2-bootstrap5": "*",
-        "portalium/yii2-core": "*",
-        "portalium/yii2-site": "*",
-        "portalium/yii2-user": "*",
-	    "portalium/yii2-rbac": "*",
-        "portalium/yii2-theme": "*",
-	    "portalium/yii2-menu": "*",
-        "portalium/yii2-content": "*",
-        "portalium/yii2-storage": "*",
-        "portalium/yii2-workspace": "*",
-	    "yiisoft/yii2-bootstrap5": "dev-master#1a4f4d6"
-    },
-    "require-dev": {
-        "yiisoft/yii2-gii": "^2.0",
-        "yiisoft/yii2-debug": "~2.0.0"
-    },
-    "config": {
-        "fxp-asset": {
-            "installer-paths": "vendor/bower"
-        },
-        "allow-plugins": {
-            "yiisoft/yii2-composer": true,
-            "portalium/yii2-composer": true
-        }
+  "name": "portalium/yii2-kickstarter",
+  "description": "Portalium Project Kickstarter",
+  "homepage": "https://www.portalium.dev/",
+  "type": "portalium-kickstarter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Uğur YILDIZ",
+      "email": "ugur.yildiz@diginova.com.tr",
+      "homepage": "https://uguryildiz.net"
     }
+  ],
+  "support": {
+    "issues": "https://github.com/portalium/yii2-kickstarter/issues"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.4.0",
+    "portalium/yii2-composer": "*",
+    "portalium/yii2-bootstrap5": "*",
+    "portalium/yii2-core": "*",
+    "portalium/yii2-site": "*",
+    "portalium/yii2-user": "*",
+    "portalium/yii2-rbac": "*",
+    "portalium/yii2-theme": "*",
+    "portalium/yii2-menu": "*",
+    "portalium/yii2-content": "*",
+    "portalium/yii2-storage": "*",
+    "portalium/yii2-workspace": "*",
+    "portalium/yii2-notification": "*",
+    "portalium/yii2-auth": "*",
+    "yiisoft/yii2-bootstrap5": "dev-master#1a4f4d6"
+  },
+  "require-dev": {
+    "yiisoft/yii2-gii": "^2.0",
+    "yiisoft/yii2-debug": "~2.0.0"
+  },
+  "config": {
+    "fxp-asset": {
+      "installer-paths": "vendor/bower"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "portalium/yii2-composer": true
+    }
+  }
 }

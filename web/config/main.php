@@ -7,11 +7,14 @@ return [
     'modules' => [
         'site' => [
             'class' => 'portalium\site\Module',
-        ], 
+        ],
+        'auth' => [
+            'class' => 'portalium\auth\Module',
+        ],
         'user' => [
             'class' => 'portalium\user\Module',
         ],
-	'rbac' => [
+	    'rbac' => [
             'class' => 'portalium\rbac\Module',
         ],
         'theme' => [
@@ -28,7 +31,10 @@ return [
         ],
         'workspace' => [
             'class' => 'portalium\workspace\Module',
-        ]
+        ],
+        'notification' => [
+            'class' => 'portalium\notification\Module',
+        ],
     ],
     'components' => [
         'request' => [
@@ -45,7 +51,7 @@ return [
         'user' => [
             'identityClass' => 'portalium\user\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => ['site/auth/login'],
+            'loginUrl' => ['auth/default/login'],
             'identityCookie' => [
                 'name' => '_identity-web',
                 'httpOnly' => true
