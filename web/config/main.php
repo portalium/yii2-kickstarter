@@ -7,7 +7,10 @@ return [
     'modules' => [
         'site' => [
             'class' => 'portalium\site\Module',
-        ], 
+        ],
+        'auth' => [
+            'class' => 'portalium\auth\Module',
+        ],
         'user' => [
             'class' => 'portalium\user\Module',
         ],
@@ -48,7 +51,7 @@ return [
         'user' => [
             'identityClass' => 'portalium\user\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => ['site/auth/login'],
+            'loginUrl' => ['auth/default/login'],
             'identityCookie' => [
                 'name' => '_identity-web',
                 'httpOnly' => true
