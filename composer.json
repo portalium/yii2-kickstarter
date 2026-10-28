@@ -40,7 +40,7 @@
   },
   "require-dev": {
     "yiisoft/yii2-gii": "^2.0",
-    "yiisoft/yii2-debug": "~2.0.0"
+    "yiisoft/yii2-debug": "^2.1.28@stable"
   },
   "config": {
     "fxp-asset": {
